@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
 import { VscTriangleUp } from "react-icons/vsc";
-import { Link, animateScroll as scroll } from "react-scroll";
+import Analysis from "../Analysis/Analysis";
 
 const AddForm = () => {
   const [name, setName] = useState("");
@@ -9,7 +9,6 @@ const AddForm = () => {
   const [gender, setGender] = useState("");
   const [previous, setPrevious] = useState("");
   const [image, setImage] = useState(null);
-  const [email, setEmail] = useState("");
 
   const [isLoading, setIsLoading] = useState(false);
   const [showData, setShowData] = useState(false);
@@ -68,16 +67,6 @@ const AddForm = () => {
         <h3>Step 2: Upload an image of your Oral</h3>
         <input id="image" type="file" onChange={(e) => handleOnChange(e)} />
       </div>
-      <div className="section-three">
-        <h3>Step 3: Share medical data with dentist (Optional)</h3>
-        <input
-          id="email"
-          type="email"
-          placeholder="Dentist email address:"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
       <button>
         {isLoading ? (
           <div>
@@ -90,12 +79,7 @@ const AddForm = () => {
       </button>
       <div>
         {showData ? (
-          <Analysis
-            name={name}
-            age={age}
-            gender={gender}
-            previoius={previous}
-          />
+          <Analysis name={name} age={age} gender={gender} previous={previous} />
         ) : (
           <></>
         )}
@@ -105,15 +89,3 @@ const AddForm = () => {
 };
 
 export default AddForm;
-
-const Analysis = ({ name, age, gender, previous }) => {
-  return (
-    <div id="section3">
-      <h1>Patient’s Personal Information</h1>
-      <h3> Patient Name: {name} </h3>
-      <h3> Patient Age: {age} </h3>
-      <h3> Patient Gender: {gender} </h3>
-      <h3> Patient Previous Illnesses: {previous} </h3>
-    </div>
-  );
-};

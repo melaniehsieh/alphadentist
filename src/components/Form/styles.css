@@ -1,7 +1,7 @@
 .add-form h3 {
   font: 20px "Arial-MTB";
   text-align: left;
-  margin-left: 0.5em;
+  margin-left: 1.5em;
 }
 
 .section-one,
@@ -31,17 +31,19 @@ button:focus {
   outline: none;
 }
 
-.add-form button {
+.add-form button,
+.btn {
   padding: 0.7em 2em;
   color: #fff;
   background-color: #24292e;
   font: 25px "Arial-MTB";
   border: #24292e solid 1px;
   border-radius: 5px;
-  margin-top: 1.5em;
+  margin-bottom: 1em;
 }
 
-.add-form button:hover {
+.add-form button:hover,
+.btn:hover {
   cursor: pointer;
   color: #24292e;
   background-color: #fff;
