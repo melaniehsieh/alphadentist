@@ -36,10 +36,10 @@ button:focus {
   padding: 0.7em 2em;
   color: #fff;
   background-color: #24292e;
-  font: 25px "Arial-MTB";
+  font: 20px "Arial-MTB";
   border: #24292e solid 1px;
   border-radius: 5px;
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
 
 .add-form button:hover,
