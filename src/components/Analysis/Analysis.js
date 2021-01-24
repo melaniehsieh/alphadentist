@@ -2,6 +2,7 @@ import React from "react";
 import "./styles.css";
 import { Progress } from "react-sweet-progress";
 import "react-sweet-progress/lib/style.css";
+import teeth from "./image_03.jpg";
 
 const Analysis = ({ name, age, gender, previous }) => {
   return (
@@ -13,10 +14,7 @@ const Analysis = ({ name, age, gender, previous }) => {
       <h3> Patient Previous Illnesses: {previous} </h3>
       <h1>Patient’s Oral Analysis</h1>
       <div className="container">
-        <img
-          src="https://tse3.mm.bing.net/th?id=OIP.HySrCJe7ATbkNjvwko8rwQHaIZ&pid=Api"
-          alt="image"
-        />
+        <img src={teeth} alt="image" />
         <div>
           <h3> Chances of getting Gingivitis: </h3>
           <Progress percent={43} status="active" className="progress" />

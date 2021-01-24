@@ -1,33 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
-import { VscTriangleUp } from "react-icons/vsc";
 import Analysis from "../Analysis/Analysis";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const AddForm = () => {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [previous, setPrevious] = useState("");
-  const [image, setImage] = useState(null);
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [showData, setShowData] = useState(false);
+  const [file, setFile] = useState(null);
 
   const handleOnChange = (e) => {
-    setImage(e.target.files[0]);
+    setFile(e.target.files[0]);
   };
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setIsLoading(true);
-    try {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1500);
-      setShowData(true);
-    } catch (e) {
-      console.log(e);
-    }
   }
 
   return (
@@ -65,24 +53,29 @@ const AddForm = () => {
       </div>
       <div className="section-two">
         <h3>Step 2: Upload an image of your Oral</h3>
-        <input id="image" type="file" onChange={(e) => handleOnChange(e)} />
+        <input id="file" type="file" onChange={(e) => handleOnChange(e)} />
       </div>
-      <button>
-        {isLoading ? (
-          <div>
-            <VscTriangleUp className="spinner" />
-            <span>Analyzing...</span>
-          </div>
-        ) : (
+      <Link
+        activeClass="active"
+        to="section3"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
+        <button>
           <span>Analyze</span>
-        )}
-      </button>
+        </button>
+      </Link>
       <div>
-        {showData ? (
-          <Analysis name={name} age={age} gender={gender} previous={previous} />
-        ) : (
-          <></>
-        )}
+        <Analysis
+          id="section3"
+          name={name}
+          age={age}
+          gender={gender}
+          previous={previous}
+          file={file}
+        />
       </div>
     </form>
   );

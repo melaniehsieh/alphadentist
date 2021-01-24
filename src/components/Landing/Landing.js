@@ -1,12 +1,13 @@
 import React from "react";
 import "./styles.css";
 import { Link, animateScroll as scroll } from "react-scroll";
+import logo from "./logo.png";
 
 const Landing = () => {
   return (
     <div id="section1">
-      <h1 style={{ fontSize: "50px" }}>AlphaDentist</h1>
-      <h3>
+      <img src={logo} alt="logo" style={{ paddingBottom: "30px" }} />
+      <h3 style={{ paddingBottom: "30px" }}>
         Welcome to AlphaDentist! An online platform for users to determine their
         likelihood of possessing oral illnesses. We understand your concerns and
         hope to make dental diagnoses free and accessible to all members of the
