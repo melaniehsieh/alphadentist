@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>AlphaDentist</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <style>
+    body {
+      display: flex;
+    }
+    #section3 {
+      margin: 5em;
+      background-color: #eff7ff;
+      padding: 1em;
+    }
+
+    h1 {
+      padding: 1em 1em 0 1em;
+      font: 25px;
+      font-weight: bold;
+    }
+
+    h3 {
+      padding: 0 2em;
+    }
+
+    img {
+      width: 40%;
+      height: 100%;
+      margin: 5%;
+      padding-top: 10%;
+      padding-right: 3%;
+    }
+
+    .progress {
+      margin: 1em 3em;
+      width: 70%;
+    }
+
+    .container {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  </style>
+  <body>
+    <div id="section3">
+      <h1>Patient’s Personal Information</h1>
+      <h3>Patient Name: John Doe</h3>
+      <h3>Patient Age: 81</h3>
+      <h3>Patient Gender: Male</h3>
+      <h3>Patient Previous Illnesses: Type 1 diabetes</h3>
+      <h1>Patient’s Oral Analysis</h1>
+      <h3>Oral health status: {{ diagnosis }}</h3>
+      <h3>Probability of getting Gingivitis: {{ probability }}</h3>
+      <div class="w3-dark-grey w3-round-xlarge progress">
+        <div class="w3-container w3-blue w3-round-xlarge" style="width: 100%">
+          {{ probability * 100}} %
+        </div>
+      </div>
+    </div>
+    <img src="../static/img/image.jpg" alt="teeth" />
+    <script
+      src="//code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

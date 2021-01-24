@@ -1,0 +1,27 @@
+#section3,
+#section1 {
+  margin: 5em 10em;
+  background-color: #eff7ff;
+  padding: 1em;
+}
+
+h1 {
+  padding: 0 1em;
+  font: 25px;
+}
+
+img {
+  align-items: inherit;
+  width: 50%;
+  height: auto;
+}
+
+.progress {
+  padding: 1em 1.5em;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}

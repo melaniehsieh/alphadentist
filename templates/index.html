@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AlphaDentist</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <style>
+    h3 {
+      font: 25px "Arial-MTB";
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5%;
+      margin: 0;
+    }
+    #inputfile {
+      width: 100%;
+      color: #000;
+      background-color: #fff;
+      border: #24292e solid 4px;
+      padding: 20px 0px 20px 30px;
+      font: 20px "Arial-MTB";
+      border-radius: 5px;
+    }
+    .btn1 {
+      margin: 4%;
+      margin-left: 45%;
+      padding: 0.7em 2em;
+      color: #fff;
+      background-color: #24292e;
+      font: 20px "Arial-MTB";
+      border: #24292e solid 1px;
+      border-radius: 5px;
+      margin-bottom: 2em;
+    }
+    .btn1:hover {
+      cursor: pointer;
+      color: #24292e;
+      background-color: #fff;
+      border: #fff solid 1px;
+    }
+  </style>
+  <body>
+    <form method=post enctype=multipart/form-data>
+    <div id="render-react-here"></div>
+    <div class="container">
+      <h3>Step 2: Upload a clear image of your front teeth</h3>
+      <input type="file" name="file" id="inputfile" />
+      <button class="btn1" type="submit">
+        Analyze
+      </button>
+    </div>
+  </form>
+
+    <script
+      src="//code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+      integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+      integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      $("#inputfile").bind("change", function () {
+        let fileSize = this.files[0].size / 1024 / 1024; // this gives in MB
+        if (fileSize > 1) {
+          $("#inputfile").val(null);
+          alert("file is too big. images more than 1MB are not allowed");
+          return;
+        }
+
+        let ext = $("#inputfile").val().split(".").pop().toLowerCase();
+        if ($.inArray(ext, ["jpg", "jpeg"]) == -1) {
+          $("#inputfile").val(null);
+          alert("only jpeg/jpg files are allowed!");
+        }
+      });
+    </script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='dist/main.bundle.js') }}"
+    ></script>
+  </body>
+</html>
