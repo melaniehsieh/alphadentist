@@ -15,7 +15,8 @@ net = models.resnet34()
 num_ftrs = net.fc.in_features
 net.fc = nn.Linear(num_ftrs, 2)
 device = torch.device('cpu')
-checkpoint = torch.load('padding_edge.pth', map_location=device)
+# checkpoint = torch.load('padding_edge.pth', map_location=device)
+checkpoint = torch.load('best.pth', map_location=device)
 net.load_state_dict(checkpoint['net'])
 net.eval()
 
@@ -58,7 +59,7 @@ def predict():
         img_bytes = file.read()
         diagnosis, probability = get_prediction(image_bytes=img_bytes)
         return render_template('result.html', diagnosis=diagnosis,
-                               probability=round(probability))
+                               probability=round(probability,5), percentage=round(probability*100,3))
     return render_template('index.html')
 
 @app.route("/")
